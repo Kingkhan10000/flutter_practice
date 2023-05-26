@@ -1,0 +1,381 @@
+
+navigation using custom routes ,,by which first we have to create our routes then in screens,
+we can access these routes
+
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
+    initialRoute: "/",
+    routes: {
+      "/": (context) => HomeScreen(title: Text("Home Page")),
+      "About_page": (context) => AboutPage(title: Text("About Page")),
+      "Contact_page": (context) => ContactPage(title: Text("Contact Page")),
+      "Setting_page": (context) => SettingPage(title: Text("Setting Page")),
+    },
+  ));
+}
+
+class HomeScreen extends StatelessWidget {
+  HomeScreen({super.key, this.title});
+
+  final title;
+  @override
+  Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    return Scaffold(
+      appBar: AppBar(
+        title: title,
+      ),
+      body: Container(
+        width: size.width,
+        height: size.height,
+        color: Colors.red,
+        child: Center(
+          child: Container(
+            width: size.width,
+            height: size.height * 0.6,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                TextButton(
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.black,
+                    minimumSize: Size(40, 40),
+                  ),
+                  onPressed: () {
+                    Navigator.pushNamed(context, "Home_page");
+                  },
+                  child: Text(
+                    "Home",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+                TextButton(
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.black,
+                    minimumSize: Size(40, 40),
+                  ),
+                  onPressed: () {
+                    Navigator.pushNamed(context, "About_page",arguments: {"subtitle":"myabout"});
+                  },
+                  child: Text(
+                    "Go to About",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+                TextButton(
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.black,
+                    minimumSize: Size(40, 40),
+                  ),
+                  onPressed: () {
+                    Navigator.pushNamed(context, "Contact_page");
+                  },
+                  child: Text(
+                    "Go to Contact",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+                TextButton(
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.black,
+                    minimumSize: Size(40, 40),
+                  ),
+                  onPressed: () {
+                    Navigator.pushNamed(context, "Setting_page");
+                  },
+                  child: Text(
+                    "Go to Settings",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class AboutPage extends StatelessWidget {
+  AboutPage({super.key, this.title});
+
+  final title;
+  @override
+  Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    return Scaffold(
+      appBar: AppBar(
+        title: title,
+        
+        // leading: IconButton(
+        //   onPressed: () {
+        //     Navigator.pop(context);
+        //   },
+        //   icon: Icon(
+        //     Icons.arrow_back,
+        //   ),
+        // ),
+      ),
+      body: Container(
+        width: size.width,
+        height: size.height,
+        color: Colors.green,
+        child: Center(
+          child: Container(
+            width: size.width,
+            height: size.height * 0.6,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                TextButton(
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.black,
+                    minimumSize: Size(40, 40),
+                  ),
+                  onPressed: () {
+                    Navigator.pushNamed(context, "/");
+                  },
+                  child: Text(
+                    "Home",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+                TextButton(
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.black,
+                    minimumSize: Size(40, 40),
+                  ),
+                  onPressed: () {
+                    Navigator.pushNamed(context, "About_page");
+                  },
+                  child: Text(
+                    "Go to About",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+                TextButton(
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.black,
+                    minimumSize: Size(40, 40),
+                  ),
+                  onPressed: () {
+                    Navigator.pushNamed(context, "Contact_page");
+                  },
+                  child: Text(
+                    "Go to Contact",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+                TextButton(
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.black,
+                    minimumSize: Size(40, 40),
+                  ),
+                  onPressed: () {
+                    Navigator.pushNamed(context, "Setting_page");
+                  },
+                  child: Text(
+                    "Go to Settings",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+
+
+class ContactPage extends StatelessWidget {
+  ContactPage({super.key, this.title});
+
+  final title;
+  @override
+  Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    return Scaffold(
+      appBar: AppBar(
+        title: title,
+        // leading: IconButton(
+        //   onPressed: () {
+        //     Navigator.pop(context);
+        //   },
+        //   icon: Icon(
+        //     Icons.arrow_back,
+        //   ),
+        // ),
+      ),
+      body: Container(
+        width: size.width,
+        height: size.height,
+        color: Colors.yellow,
+        child: Center(
+          child: Container(
+            width: size.width,
+            height: size.height * 0.6,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                TextButton(
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.black,
+                    minimumSize: Size(40, 40),
+                  ),
+                  onPressed: () {
+                    Navigator.pushNamed(context, "/");
+                  },
+                  child: Text(
+                    "Home",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+                TextButton(
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.black,
+                    minimumSize: Size(40, 40),
+                  ),
+                  onPressed: () {
+                    Navigator.pushNamed(context, "About_page");
+                  },
+                  child: Text(
+                    "Go to About",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+                TextButton(
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.black,
+                    minimumSize: Size(40, 40),
+                  ),
+                  onPressed: () {
+                    Navigator.pushNamed(context, "Contact_page");
+                  },
+                  child: Text(
+                    "Go to Contact",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+                TextButton(
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.black,
+                    minimumSize: Size(40, 40),
+                  ),
+                  onPressed: () {
+                    Navigator.pushNamed(context, "Setting_page");
+                  },
+                  child: Text(
+                    "Go to Settings",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+
+
+class SettingPage extends StatelessWidget {
+  SettingPage({super.key, this.title});
+
+  final title;
+  @override
+  Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    return Scaffold(
+      appBar: AppBar(
+        title: title,
+        // leading: IconButton(
+        //   onPressed: () {
+        //     Navigator.pop(context);
+        //   },
+        //   icon: Icon(
+        //     Icons.arrow_back,
+        //   ),
+        // ),
+      ),
+      body: Container(
+        width: size.width,
+        height: size.height,
+        color: Colors.purple,
+        child: Center(
+          child: Container(
+            width: size.width,
+            height: size.height * 0.6,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                TextButton(
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.black,
+                    minimumSize: Size(40, 40),
+                  ),
+                  onPressed: () {
+                    Navigator.pushNamed(context, "/");
+                  },
+                  child: Text(
+                    "Home",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+                TextButton(
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.black,
+                    minimumSize: Size(40, 40),
+                  ),
+                  onPressed: () {
+                    Navigator.pushNamed(context, "About_page");
+                  },
+                  child: Text(
+                    "Go to About",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+                TextButton(
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.black,
+                    minimumSize: Size(40, 40),
+                  ),
+                  onPressed: () {
+                    Navigator.pushNamed(context, "Contact_page");
+                  },
+                  child: Text(
+                    "Go to Contact",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+                TextButton(
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.black,
+                    minimumSize: Size(40, 40),
+                  ),
+                  onPressed: () {
+                    Navigator.pushNamed(context, "Setting_page");
+                  },
+                  child: Text(
+                    "Go to Settings",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}

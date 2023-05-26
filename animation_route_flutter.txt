@@ -1,0 +1,78 @@
+animation on page changing 
+
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(
+    const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Page1(),
+    ),
+  );
+}
+
+class Page1 extends StatelessWidget {
+  const Page1({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Home Screen"),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.of(context).push(_createRoute());
+          },
+          child: const Text('Go!'),
+        ),
+      ),
+    );
+  }
+}
+
+Route _createRoute() {
+  return PageRouteBuilder(
+    pageBuilder: (context, animation, secondaryAnimation) => const Page2(),
+    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+      const begin = Offset(1, 0);
+
+      const end = Offset.zero;
+      final lefttoright = Tween(
+        begin: begin,
+        end: end,
+      ).chain(
+        CurveTween(curve: Curves.easeInSine),
+      );
+
+      return SlideTransition(
+        position: animation.drive(lefttoright),
+        child: child,
+      );
+    },
+  );
+}
+
+
+
+class Page2 extends StatelessWidget {
+  const Page2({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.red,
+      ),
+      body: Center(
+        child: Container(
+          decoration: BoxDecoration(color: Colors.black),
+          width: 300,
+          height: 200,
+          child: Text("kingkhan"),
+        ),
+      ),
+    );
+  }
+}
